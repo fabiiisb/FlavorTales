@@ -21,7 +21,7 @@ export default function Sidebar({ children }: SidebarProps) {
 
   return (
     <>
-      <aside className={`bg-background border-r w-64 absolute inset-y-0 left-0 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-10`}>
+      <aside className={`bg-[#fff] border-r w-64 absolute inset-y-0 left-0 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-10`}>
         <div className="h-full flex flex-col">
           <div className="p-4 border-b flex justify-between items-center">
             <h2 className="text-lg font-semibold">FlavorTales</h2>
