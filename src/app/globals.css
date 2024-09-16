@@ -5,8 +5,9 @@
 
 body {
   @apply text-[#202020];  /* #3d3d3d PARA MUTED */
-  @apply bg-[#ffffff];
+  @apply bg-[#f5f5f0];
 }
+
 
 @layer base {
   :root {

@@ -62,7 +62,7 @@ export default function Sidebar({ children }: SidebarProps) {
             <MenuIcon className="h-4 w-4" />
           </Button>
         </header>
-        <main className='flex-1 overflow-auto p-3'>
+        <main className='flex-1 overflow-auto'>
           {children}
         </main>
       </div>
