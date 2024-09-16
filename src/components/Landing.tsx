@@ -1,5 +1,7 @@
 import Image from "next/image"
 import ingredientesImg from "@/img/ingredientes.webp"
+import { Search } from "lucide-react"
+import SearchInput from "./subComponents/SearchInput"
 
 const Landing = () => {
   return (
@@ -10,7 +12,7 @@ const Landing = () => {
         alt="Imagen receta"
         layout="fill"
         style={{
-          maskImage: 'linear-gradient(red 80%, transparent)'
+          maskImage: 'linear-gradient(white 80%, transparent)'
         }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center p-3">
@@ -21,6 +23,10 @@ const Landing = () => {
           </span>
           a tu alcance!
         </h1>
+        <div className="relative w-full max-w-sm mt-7">
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+          <SearchInput />
+        </div>
       </div>
     </div>
   );
