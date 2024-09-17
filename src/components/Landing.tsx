@@ -16,7 +16,7 @@ const Landing = () => {
         }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center p-3">
-        <h1 className="text-5xl p-2 rounded-sm text-white backdrop-blur-xl bg-[rgb(182,217,208,0.9)] font-bold drop-shadow-lg">
+        <h1 className="text-5xl p-3 rounded-2xl text-white backdrop-blur-xl bg-forest-300 font-bold drop-shadow-lg ">
           ¡Tus
           <span className="text-forest-600">
             &nbsp;recetas&nbsp;

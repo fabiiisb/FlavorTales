@@ -31,7 +31,7 @@ const CardList = ({ recipes }: CardListProps) => {
             key={recipe.id}
           >
             <Card
-              className="bg-white/65 overflow-hidden rounded-2xl "
+              className="bg-white/65 overflow-hidden rounded-2xl drop-shadow-lg"
               title={recipe.title}
             >
               <CardHeader className="p-0 relative group">
@@ -41,7 +41,7 @@ const CardList = ({ recipes }: CardListProps) => {
                   alt="Imagen receta"
                 />
                 <div
-                  className="scroll-container backdrop-blur-sm bg-gradient-to-r from-black/70 absolute p-2 pl-4 !m-0 w-full h-full opacity-0 group-hover:opacity-100 rounded-2xl overflow-auto text-white transition-opacity duration-300"
+                  className="scroll-container backdrop-blur-sm bg-gradient-to-r from-black/70 absolute p-2 pl-4 !m-0 w-full h-full opacity-0 group-hover:opacity-100 rounded-2xl overflow-auto text-white transition-opacity duration-300 "
                 >
                   <p className="mb-1">Ingredientes:</p>
                   <ul className="list-disc list-outside pl-5 space-y-1 marker:text-[#ed5c4c]">
