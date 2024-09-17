@@ -5,51 +5,23 @@ import testImg from "@/img/test.jpg";
 import Link from "next/link";
 import { Clock, ChefHat } from "lucide-react";
 import StarRating from "./subComponents/StarRating";
+import difficultyToText from "@/utils/recipeDifficulty";
 
-const CardList = () => {
-  const recipes = [
-    {
-      id: 1,
-      title: "Pizza Margarita",
-      user: "Fabian Barrientos",
-      stars: 1,
-      minutes: 30,
-      difficulty: "Fácil",
-    },
-    {
-      id: 2,
-      title: "Tacos al Pastor",
-      user: "Maria González",
-      stars: 1.5,
-      minutes: 45,
-      difficulty: "Medio",
-    },
-    {
-      id: 3,
-      title: "Sopa de Tomate",
-      user: "Luis Martínez",
-      stars: 0.5,
-      minutes: 25,
-      difficulty: "Fácil",
-    },
-    {
-      id: 4,
-      title: "Ensalada César",
-      user: "Ana Pérez",
-      stars: 4.5,
-      minutes: 20,
-      difficulty: "Fácil",
-    },
-    {
-      id: 5,
-      title: "Brownies de Chocolate",
-      user: "Carlos Rodríguez",
-      stars: 5,
-      minutes: 50,
-      difficulty: "Dificil",
-    },
-  ];
+interface Recipes {
+  id: number;
+  title: string;
+  user: string;
+  stars: number;
+  minutes: number;
+  difficulty: number;
+  ingredients: string[];
+}
 
+interface CardListProps {
+  recipes: Recipes[];
+}
+
+const CardList = ({ recipes }: CardListProps) => {
   return (
     <div className="mx-auto p-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-[minmax(200px,auto)]">
@@ -59,15 +31,27 @@ const CardList = () => {
             key={recipe.id}
           >
             <Card
-              className="bg-forest-50 overflow-hidden rounded-md border border-forest-100"
+              className="bg-white overflow-hidden rounded-md border border-forest-100 "
               title={recipe.title}
             >
-              <CardHeader className="p-0">
+              <CardHeader className="p-0 relative group">
                 <Image
-                  className="w-full max-h-[200px] object-cover rounded-md"
+                  className="w-full max-h-[200px] object-cover rounded-md "
                   src={testImg}
-                  alt="test"
+                  alt="Imagen receta"
                 />
+                <div
+                  className="scroll-container backdrop-blur-sm bg-gradient-to-r from-black/70 absolute p-2 !m-0 w-full h-full opacity-0 group-hover:opacity-100 rounded-md overflow-auto text-white transition-opacity duration-300"
+                >
+                  <p className="mb-1">Ingredientes:</p>
+                  <ul className="list-disc list-outside pl-5 space-y-1 marker:text-[#ed5c4c]">
+                    {recipe.ingredients.map((ingredient, index) => (
+                      <li key={index} className="text-sm">
+                        {ingredient}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </CardHeader>
               <CardFooter
                 className="flex flex-col gap-3"
@@ -89,7 +73,7 @@ const CardList = () => {
                     variant={'forest'}
                   >
                     <ChefHat className="w-4 h-4" />
-                    {recipe.difficulty}
+                    {difficultyToText(recipe.difficulty)}
                   </Badge>
                 </div>
                 <StarRating rating={recipe.stars} />
