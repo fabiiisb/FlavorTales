@@ -19,7 +19,7 @@ export default function SearchInput() {
   return (
     <div className="relative w-full max-w-sm text-white">
 
-      <div className="absolute inset-0 backdrop-blur-md rounded-3xl bg-forest-50/70 shadow-md" />
+      <div className="absolute inset-0 backdrop-blur-md rounded-3xl bg-white/75 shadow-md" />
 
       <Search className="absolute left-2 top-3 h-5 w-5 text-forest-800 z-10" />
 
