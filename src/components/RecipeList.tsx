@@ -44,7 +44,7 @@ const CardList = ({ recipes }: CardListProps) => {
                   className="scroll-container backdrop-blur-sm bg-gradient-to-r from-black/70 absolute p-2 pl-4 !m-0 w-full h-full opacity-0 group-hover:opacity-100 rounded-2xl overflow-auto text-white transition-opacity duration-300 "
                 >
                   <p className="mb-1">Ingredientes:</p>
-                  <ul className="list-disc list-outside pl-5 space-y-1 marker:text-[#ed5c4c]">
+                  <ul className="list-disc list-outside pl-5 space-y-1 marker:text-sunsetOrange-500">
                     {recipe.ingredients.map((ingredient, index) => (
                       <li key={index} className="text-sm">
                         {ingredient}
