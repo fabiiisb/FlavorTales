@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       <Landing />
-      <div className="p-3">
+      <div className="p-6">
 
         <CardList recipes={recipes}/>
       </div>
