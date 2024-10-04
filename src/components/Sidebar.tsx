@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { HomeIcon, InboxIcon, UsersIcon, SettingsIcon, MenuIcon, XIcon, Microwave } from 'lucide-react'
+import Image from 'next/image'
+import logo from '@/img/logo1.png'
 
 type SidebarProps = {
   children: React.ReactNode;
@@ -30,10 +32,18 @@ export default function Sidebar({ children }: SidebarProps) {
       )}
       <aside className={`bg-[#fff] border-r w-64 absolute inset-y-0 left-0 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-30`}>
         <div className="h-full flex flex-col">
-          <div className="px-4 border-b flex justify-between items-center py-1 h-[49px]">
-            <h2 className="text-lg font-semibold">
-              {process.env.NEXT_PUBLIC_PAGE_NAME}
-            </h2>
+          <div
+            className="px-4 py-3 border-b flex justify-between lg:justify-center items-center "
+          >
+            <Link
+              href={'/'}
+              className='flex lg:flex-col justify-center items-center'
+            >
+              <Image src={logo} alt='logo' className='w-8 h-8 mr-1 lg:w-16 lg:h-16 lg:mr-0' />
+              <h2 className="text-lg font-semibold">
+                {process.env.NEXT_PUBLIC_PAGE_NAME}
+              </h2>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
@@ -42,6 +52,26 @@ export default function Sidebar({ children }: SidebarProps) {
             >
               <XIcon className="h-4 w-4" />
             </Button>
+          </div>
+          <div className='flex flex-col gap-2 px-4 py-3 border-b  justify-center items-center'>
+            <Link href={'/login'}>
+              <Button
+                className='w-40'
+              >
+                <UsersIcon className='h-5 w-5 mr-1' />
+                Iniciar sesión
+              </Button>
+            </Link>
+
+            <Link href={'/signup'}>
+              <Button
+                className='w-40'
+                variant={'outline'}
+              >
+                <UsersIcon className='h-5 w-5 mr-1' />
+                Unirse
+              </Button>
+            </Link>
           </div>
           <ScrollArea className="flex-grow">
             <nav className="space-y-2 p-4">
