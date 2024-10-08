@@ -1,20 +1,20 @@
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image";
-import testImg from "@/img/test.jpg";
 import Link from "next/link";
 import { Clock, ChefHat } from "lucide-react";
 import StarRating from "./subComponents/StarRating";
 import difficultyToText from "@/utils/recipeDifficulty";
 
 interface Recipes {
-  id: number;
+  _id: number;
   title: string;
   user: string;
   stars: number;
-  minutes: number;
+  duration: number;
   difficulty: number;
   ingredients: string[];
+  image: string;
 }
 
 interface CardListProps {
@@ -27,8 +27,8 @@ const CardList = ({ recipes }: CardListProps) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-[minmax(200px,auto)] ">
         {recipes.map((recipe) => (
           <Link
-            href={`/receta/${recipe.id}`}
-            key={recipe.id}
+            href={`/receta/${recipe._id}`}
+            key={recipe._id}
           >
             <Card
               className="bg-white/65 overflow-hidden rounded-2xl drop-shadow-lg"
@@ -37,7 +37,9 @@ const CardList = ({ recipes }: CardListProps) => {
               <CardHeader className="p-0 relative group">
                 <Image
                   className="w-full max-h-[200px] object-cover rounded-2xl "
-                  src={testImg}
+                  width={250}
+                  height={250}
+                  src={recipe.image}
                   alt="Imagen receta"
                 />
                 <div
@@ -66,7 +68,7 @@ const CardList = ({ recipes }: CardListProps) => {
                     variant={'forest'}
                   >
                     <Clock className="w-4 h-4" />
-                    {recipe.minutes} min
+                    {recipe.duration} min
                   </Badge>
                   <Badge
                     className="flex gap-1"
