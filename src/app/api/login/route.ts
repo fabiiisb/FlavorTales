@@ -6,9 +6,10 @@ export async function POST(request: Request) {
   await getConn()
   const data = await request.json()
   const { email, password } = data
+  const normalizedEmail = email.toLowerCase();
 
   try {
-    const userData = await User.findOne({ email: email })
+    const userData = await User.findOne({ email: normalizedEmail })
 
     if (!userData) {
       return NextResponse.json(
