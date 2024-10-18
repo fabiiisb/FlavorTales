@@ -17,6 +17,7 @@ interface IRecipe extends Document {
   difficulty: number
   duration: number
   calories: number
+  image: string
   stars: number
   steps: Step[]
   ingredients: Ingredient[]
@@ -49,6 +50,10 @@ const RecipeSchema: Schema = new Schema({
     type: Number,
     required: true
   }, 
+  image: {
+    type: String,
+    required: true
+  },
   stars: {
     type: Number,
     required: true,
