@@ -22,7 +22,8 @@ export interface Recipe {
   difficulty: number
   duration: number
   calories: number
-  image: string
+  image_url: string
+  image_id: string
   stars: number
   steps: Step[]
   ingredients: Ingredient[]

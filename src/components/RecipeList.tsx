@@ -7,18 +7,19 @@ import StarRating from "./subComponents/StarRating";
 import difficultyToText from "@/utils/recipeDifficulty";
 
 interface Recipes {
-  _id: number;
-  title: string;
-  user: string;
-  stars: number;
-  duration: number;
-  difficulty: number;
-  ingredients: string[];
-  image: string;
+  _id: number
+  title: string
+  user: string
+  stars: number
+  duration: number
+  difficulty: number
+  ingredients: string[]
+  image_url: string
+  image_id: string
 }
 
 interface CardListProps {
-  recipes: Recipes[];
+  recipes: Recipes[]
 }
 
 const CardList = ({ recipes }: CardListProps) => {
@@ -39,7 +40,7 @@ const CardList = ({ recipes }: CardListProps) => {
                   className="w-full max-h-[200px] object-cover rounded-2xl "
                   width={250}
                   height={250}
-                  src={recipe.image}
+                  src={recipe.image_url}
                   alt="Imagen receta"
                 />
                 <div

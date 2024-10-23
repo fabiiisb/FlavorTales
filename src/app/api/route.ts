@@ -13,7 +13,7 @@ export async function GET() {
           title: 1,
           duration: 1,
           difficulty: 1,
-          image: 1,
+          image_url: 1,
           stars: 1,
           ingredients: {
             $map: {
