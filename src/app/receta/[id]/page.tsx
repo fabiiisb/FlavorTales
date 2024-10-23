@@ -9,7 +9,7 @@ import { Error404, Error500 } from "@/components/ErrorResponses"
 import { Recipe, RecipeProps } from "@/types/recipeInterface"
 
 const Page = async ({ params }: RecipeProps) => {
-  let data 
+  let data
 
   const getRecipe = async () => {
     const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + `/api/receta/${params.id}`, {
@@ -26,11 +26,11 @@ const Page = async ({ params }: RecipeProps) => {
   try {
     data = await getRecipe()
   } catch (err) {
-    return ( <Error500 /> )
+    return (<Error500 />)
   }
 
   if (data.message === "Receta no encontrada") {
-    return ( <Error404 /> )
+    return (<Error404 />)
   }
 
   const recipeData: Recipe = data.data
@@ -48,10 +48,9 @@ const Page = async ({ params }: RecipeProps) => {
             {recipeData.username}
           </Link>
 
-          <p className="mt-4">
+          <p className="mt-4 whitespace-break-spaces	break-words">
             {recipeData.description}
           </p>
-
           <div className="flex mt-6 gap-10">
 
             <div className="flex flex-col gap-2 ">
@@ -89,7 +88,7 @@ const Page = async ({ params }: RecipeProps) => {
         <section className="flex-1 flex justify-center mb-5 sm:mb-0 sm:pl-6">
           <Image
             className="aspect-square sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl"
-            src={recipeData.image}
+            src={recipeData.image_url}
             width={500}
             height={500}
             alt="Imagen receta"
