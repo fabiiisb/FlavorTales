@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { HomeIcon, InboxIcon, UsersIcon, SettingsIcon, MenuIcon, XIcon, Microwave } from 'lucide-react'
+import { HomeIcon, Pin, UsersIcon, Upload, MenuIcon, XIcon, Microwave } from 'lucide-react'
 import Image from 'next/image'
 import logo from '@/img/logo1.png'
 import { useSession, signOut } from 'next-auth/react'
@@ -34,10 +34,9 @@ export default function Sidebar({ children }: SidebarProps) {
 
   const navItems = [
     { name: 'Inicio', icon: HomeIcon, href: '/' },
-    { name: 'Bandeja de entrada', icon: InboxIcon, href: '/inbox' },
-    { name: 'Usuarios', icon: UsersIcon, href: '/users' },
-    { name: 'Configuración', icon: SettingsIcon, href: '/settings' },
-    { name: 'Recetas guardadas', icon: Microwave, href: '/recetasguardadas' },
+    { name: 'Recetas guardadas', icon: Pin, href: '/inbox' },
+    { name: 'Mis recetas', icon: Microwave, href: '/mis-recetas' },
+    { name: 'Subir receta', icon: Upload, href: '/crear/receta' }
   ]
 
   return (
@@ -129,7 +128,7 @@ export default function Sidebar({ children }: SidebarProps) {
               {process.env.NEXT_PUBLIC_PAGE_NAME}
             </Link>
             <div className='flex gap-1'>
-              <Link href={navItems[4].href}>
+              <Link href={navItems[3].href}>
                 <Button
                   className='text-muted-foreground hover:text-black'
                   variant={'ghost'}
