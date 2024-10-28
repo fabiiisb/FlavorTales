@@ -28,3 +28,17 @@ export interface Recipe {
   steps: Step[]
   ingredients: Ingredient[]
 }
+
+export interface RecipeUI {
+  _id: string
+  title: string
+  description: string
+  difficulty: number
+  duration: number
+  calories: number
+  image_url: string
+  image_id: string
+  stars: number
+  steps: Step[]
+  ingredients: Ingredient[]
+}
